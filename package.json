@@ -24,7 +24,16 @@
     "koa-cookies"
   ],
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "9.0.0",
+    "eslint": "5.6.0",
+    "eslint-config-zacanger": "3.4.1",
+    "eslint-plugin-babel": "5.2.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "7.0.1",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-unicorn": "6.0.1"
+  },
   "engines": {
     "node": ">=10.0.0"
   }
