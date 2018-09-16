@@ -1,0 +1,31 @@
+{
+  "name": "koa-cookies",
+  "description": "koa-cookies",
+  "version": "0.0.1",
+  "author": {
+    "name": "Zac Anger",
+    "email": "zac@zacanger.com",
+    "url": "http://zacanger.com"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": ""
+  },
+  "homepage": "https://github.com/zacanger/koa-cookies#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zacanger/koa-cookies.git"
+  },
+  "bugs": "https://github.com/zacanger/koa-cookies/issues",
+  "keywords": [
+    "",
+    "koa-cookies"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
