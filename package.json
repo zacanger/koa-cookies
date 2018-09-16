@@ -1,7 +1,7 @@
 {
   "name": "koa-cookies",
   "description": "Set and clear cookies in your Koa application",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": {
     "name": "Zac Anger",
     "email": "zac@zacanger.com",
