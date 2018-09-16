@@ -1,20 +1,32 @@
 const defaultNext = () => Promise.resolve()
 
-const setCookie = (name, value, config) =>
+const getFutureDate = () => {
+  const d = new Date()
+  d.setDate(d.getDate() + 7)
+  return d
+}
+
+const getDefaultSetConfig = (ctx) => ({
+  domain: ctx.host,
+  maxAge: 604800,
+  expires: getFutureDate()
+})
+
+const setCookie = (name, value, config = {}) =>
   async (ctx, next = defaultNext) => {
-    ctx.cookies.set(name, value, config)
+    ctx.cookies.set(name, value, Object.assign({}, getDefaultSetConfig(ctx), config))
     await next()
   }
 
-const getDefaultConfig = (ctx) => ({
+const getDefaultClearConfig = (ctx) => ({
   domain: ctx.host,
   maxAge: 1,
   expires: new Date(1)
 })
 
-const clearCookie = (name, config) =>
+const clearCookie = (name, config = {}) =>
   async (ctx, next = defaultNext) => {
-    ctx.cookies.set(name, 'removed', Object.assign({}, getDefaultConfig(ctx), config))
+    ctx.cookies.set(name, 'removed', Object.assign({}, getDefaultClearConfig(ctx), config))
     await next()
   }
 
