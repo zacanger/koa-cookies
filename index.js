@@ -14,7 +14,11 @@ const getDefaultSetConfig = (ctx) => ({
 
 const setCookie = (name, value, config = {}) =>
   async (ctx, next = defaultNext) => {
-    ctx.cookies.set(name, value, Object.assign({}, getDefaultSetConfig(ctx), config))
+    ctx.cookies.set(
+      encodeURIComponent(name),
+      encodeURIComponent(value),
+      Object.assign({}, getDefaultSetConfig(ctx), config)
+    )
     await next()
   }
 
@@ -26,7 +30,11 @@ const getDefaultClearConfig = (ctx) => ({
 
 const clearCookie = (name, config = {}) =>
   async (ctx, next = defaultNext) => {
-    ctx.cookies.set(name, 'removed', Object.assign({}, getDefaultClearConfig(ctx), config))
+    ctx.cookies.set(
+      encodeURIComponent(name),
+      'removed',
+      Object.assign({}, getDefaultClearConfig(ctx), config)
+    )
     await next()
   }
 
