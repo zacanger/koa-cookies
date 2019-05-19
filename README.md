@@ -1,7 +1,5 @@
 # koa-cookies
 
-WIP
-
 Set and clear cookies in your Koa application.
 
 --------
