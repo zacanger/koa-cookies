@@ -4,6 +4,8 @@ const Koa = require('koa')
 const request = require('supertest')
 const cookies = require('./')
 
+/* eslint-disable handle-callback-err */
+
 tape.test('set cookie', (t) => {
   const app = new Koa()
   app.use(cookies.setCookie('foo', 'bar'))
