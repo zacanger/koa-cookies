@@ -8,7 +8,7 @@ const getFutureDate = () => {
 
 const getDefaultSetConfig = (ctx) => ({
   domain: ctx.host,
-  maxAge: 604800,
+  maxAge: 604_800,
   expires: getFutureDate(),
 })
 
