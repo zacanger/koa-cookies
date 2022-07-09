@@ -1,12 +1,10 @@
-/* eslint-disable node/no-unpublished-require */
-
 const tape = require('tape')
 const http = require('http')
 const Koa = require('koa')
 const request = require('supertest')
 const cookies = require('.')
 
-/* eslint-disable handle-callback-err */
+/* eslint-disable n/handle-callback-err */
 
 tape.test('set cookie', (t) => {
   const app = new Koa()
@@ -33,7 +31,7 @@ tape.test('clear cookie', (t) => {
 tape.test('config', (t) => {
   const app = new Koa()
   const config = {
-    domain: 'example.com',
+    domain: 'example.com'
   }
   app.use(cookies.setCookie('foo', 'bar', config))
   request(http.createServer(app.callback()))

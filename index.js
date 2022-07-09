@@ -9,7 +9,7 @@ const getFutureDate = () => {
 const getDefaultSetConfig = (ctx) => ({
   domain: ctx.host,
   maxAge: 604_800,
-  expires: getFutureDate(),
+  expires: getFutureDate()
 })
 
 const setCookie = (name, value, config = {}) => async (
@@ -27,7 +27,7 @@ const setCookie = (name, value, config = {}) => async (
 const getDefaultClearConfig = (ctx) => ({
   domain: ctx.host,
   maxAge: 1,
-  expires: new Date(1),
+  expires: new Date(1)
 })
 
 const clearCookie = (name, config = {}) => async (ctx, next = defaultNext) => {
@@ -41,5 +41,5 @@ const clearCookie = (name, config = {}) => async (ctx, next = defaultNext) => {
 
 module.exports = {
   setCookie,
-  clearCookie,
+  clearCookie
 }
