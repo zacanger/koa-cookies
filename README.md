@@ -2,6 +2,8 @@
 
 Set and clear cookies in your Koa application.
 
+[Donate](https://ko-fi.com/zacanger)
+
 --------
 
 ## Installation
