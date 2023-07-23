@@ -1,10 +1,10 @@
-const tape = require('tape')
-const http = require('http')
-const Koa = require('koa')
-const request = require('supertest')
-const cookies = require('.')
+import tape from 'tape'
+import * as http from 'http'
+import Koa from 'koa'
+import request from 'supertest'
+import * as cookies from '.'
 
-/* eslint-disable n/handle-callback-err */
+/* eslint-disable n/handle-callback-err,@typescript-eslint/no-misused-promises */
 
 tape.test('set cookie', (t) => {
   const app = new Koa()

@@ -1,18 +1,26 @@
-const defaultNext = () => Promise.resolve()
+import * as Koa from 'koa'
 
-const getFutureDate = () => {
+interface CookiesConfig {
+  domain: string
+  maxAge: number
+  expires: Date
+}
+
+const defaultNext = async (): Promise<void> => await Promise.resolve()
+
+const getFutureDate = (): Date => {
   const d = new Date()
   d.setDate(d.getDate() + 7)
   return d
 }
 
-const getDefaultSetConfig = (ctx) => ({
+const getDefaultSetConfig = (ctx: Koa.Context): CookiesConfig => ({
   domain: ctx.host,
   maxAge: 604_800,
   expires: getFutureDate()
 })
 
-const setCookie = (name, value, config = {}) => async (
+export const setCookie = (name, value, config = {}) => async (
   ctx,
   next = defaultNext
 ) => {
@@ -24,22 +32,17 @@ const setCookie = (name, value, config = {}) => async (
   await next()
 }
 
-const getDefaultClearConfig = (ctx) => ({
+const getDefaultClearConfig = (ctx: Koa.Context): CookiesConfig => ({
   domain: ctx.host,
   maxAge: 1,
   expires: new Date(1)
 })
 
-const clearCookie = (name, config = {}) => async (ctx, next = defaultNext) => {
+export const clearCookie = (name, config = {}) => async (ctx, next = defaultNext) => {
   ctx.cookies.set(
     encodeURIComponent(name),
     'removed',
     Object.assign({}, getDefaultClearConfig(ctx), config)
   )
   await next()
-}
-
-module.exports = {
-  setCookie,
-  clearCookie
 }

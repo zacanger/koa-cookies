@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "esnext"
+    ],
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./lib",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false
+  },
+  "include": [
+    "src"
+  ]
+}
