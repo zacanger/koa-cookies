@@ -14,22 +14,24 @@ Set and clear cookies in your Koa application.
 
 ```javascript
 // set up your koa server, koa-router, etc.
-const { clearCookie, setCookie } = require('koa-cookies')
+import { clearCookie, setCookie, parseCookie } from 'koa-cookies'
 
+// Use in routes
 app.get('/foo', async (ctx, next) => {
-  setCookie('bar', 'baz')(ctx)
-  // other /foo stuff
+  await setCookie('bar', 'baz')(ctx)
 })
-
 app.get('/things', (ctx) => {
-  clearCookie('foo')(ctx)
+  await clearCookie('foo')(ctx)
+})
+app.get('/stuff', (ctx) => {
+  await parseCookie('bar')(ctx) // => string value for this cookie key
 })
 
-app.use(setCookie('foo', 'bar', config))
-app.use(clearCookie('baz', config))
+// Use as middlewares
+app.use(setCookie('foo', 'bar', config)) // set on every request
+app.use(clearCookie('baz', config)) // clear on every request
+app.use(parseCookie()) // always add all cookies to ctx.cookies
 ```
-
-`setCookie` and `clearCookie` work in both routes and as middleware.
 
 The `config` argument is optional. Defaults:
 
