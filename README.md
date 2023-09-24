@@ -18,12 +18,12 @@ import { clearCookie, setCookie, parseCookie } from 'koa-cookies'
 
 // Use in routes
 app.get('/foo', async (ctx, next) => {
-  await setCookie('bar', 'baz')(ctx)
+  await setCookie('bar', 'baz')(ctx) // => void
 })
-app.get('/things', (ctx) => {
-  await clearCookie('foo')(ctx)
+app.get('/things', async (ctx) => {
+  await clearCookie('foo')(ctx) // => void
 })
-app.get('/stuff', (ctx) => {
+app.get('/stuff', async (ctx) => {
   await parseCookie('bar')(ctx) // => string value for this cookie key
 })
 
