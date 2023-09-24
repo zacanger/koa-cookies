@@ -13,7 +13,7 @@
     "preversion": "npm run build",
     "build": "tsc",
     "prebuild": "npm t",
-    "test": "sortpack && run-s -s test:ts test:lint test:tape",
+    "test": "sortpack && run-s test:ts test:lint test:tape",
     "test:ts": "tsc --noEmit",
     "test:lint": "ts-standard src/",
     "test:tape": "ts-node node_modules/.bin/tape src/index.test.ts | tap-spec"
