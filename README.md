@@ -1,6 +1,6 @@
 # koa-cookies
 
-Set and clear cookies in your Koa application.
+Set, clear, and parse cookies in your Koa application.
 
 [Donate](https://ko-fi.com/zacanger)
 
