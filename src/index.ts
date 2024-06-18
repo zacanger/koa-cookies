@@ -47,8 +47,6 @@ export const clearCookie = (s: string, config = {}) =>
   }
 
 interface cookieMap { [key: string]: string }
-// TODO: in here, we could add more functionality,
-// like express's cookie-parser
 const getCookies = (cookieStr: string = ''): cookieMap =>
   cookieStr.split(';')
     .reduce((prev, curr) => {
